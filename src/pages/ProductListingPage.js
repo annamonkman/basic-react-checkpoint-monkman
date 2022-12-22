@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { StyledPlp } from "./styles/Plp.styled";
+import ProductCard from "../components/ProductCard";
 
 const ProductListingPage = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +27,7 @@ const ProductListingPage = () => {
   return (
     <StyledPlp>
       <p>
-        Number of products: <span>15</span>
+        Number of products: <span>{String(data.length ?? 0)}</span>
       </p>
       <div className="grid">
         {error ? (
@@ -34,9 +35,7 @@ const ProductListingPage = () => {
         ) : loading ? (
           <p>loading</p>
         ) : (
-          data.map((product) => (
-            <img src={product.image} alt={product.title}></img>
-          ))
+          data.map((product, index) => <ProductCard key={index} {...product} />)
         )}
       </div>
     </StyledPlp>
