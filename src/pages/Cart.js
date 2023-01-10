@@ -2,7 +2,6 @@ import React from "react";
 import Modal from "../components/Modal";
 import { useCart } from "../context/CartContext";
 import CartItem from "./CartItem";
-import { StyledCart } from "./styles/Cart.styled";
 
 const Cart = ({ open, onClose, data }) => {
   const { cartItems, setCartItems } = useCart();
@@ -23,23 +22,21 @@ const Cart = ({ open, onClose, data }) => {
       dimmer
       onClose={onClose}
     >
-      <StyledCart>
-        {cartItems.length === 0 ? (
-          <p>No Items</p>
-        ) : (
-          <>
-            <div className="headings">
-              <h3>quantity</h3>
-              <button onClick={() => setCartItems([])}>Clear All Items</button>
-            </div>
-            <div className="item-list">
-              {cartItems.map((item) => (
-                <CartItem key={item.id} data={data} {...item} />
-              ))}
-            </div>
-          </>
-        )}
-      </StyledCart>
+      {cartItems.length === 0 ? (
+        <p>No Items</p>
+      ) : (
+        <>
+          <div className="headings">
+            <h3>quantity</h3>
+            <button onClick={() => setCartItems([])}>Clear All Items</button>
+          </div>
+          <div className="item-list">
+            {cartItems.map((item) => (
+              <CartItem key={item.id} data={data} {...item} />
+            ))}
+          </div>
+        </>
+      )}
     </Modal>
   );
 };
