@@ -12,22 +12,18 @@ export const StyledCard = styled.div`
   align-items: center;
   justify-content: space-between;
   img {
-    /* border: 1px solid red; */
     max-width: 100%;
     max-height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    /* margin: 0 auto; */
   }
   .info {
-    /* border: 1px solid blue; */
     margin-top: 8px;
     height: 90px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     h4 {
-      /* border: 1px solid pink; */
       font-size: 12px;
       font-weight: normal;
       margin: 0;
@@ -38,13 +34,11 @@ export const StyledCard = styled.div`
       width: 180px;
     }
     p {
-      /* border: 1px solid teal; */
       font-size: 18px;
       font-weight: normal;
       margin: 0;
     }
     .buttons {
-      /* border: 1px solid teal; */
       margin: 7px 0;
       button {
         background-color: white;
@@ -58,7 +52,10 @@ export const StyledCard = styled.div`
       .heart {
         color: #eb1609;
       }
-      .heart:hover {
+      /* .heart:hover {
+        fill: #eb1609;
+      } */
+      .in-wishlist {
         fill: #eb1609;
       }
       .cart {

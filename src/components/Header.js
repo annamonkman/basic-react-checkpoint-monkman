@@ -1,31 +1,31 @@
 import React from "react";
-import { StyledHeader } from "./styles/Header.styled";
 
+import { StyledHeader } from "./styles/Header.styled";
 import { HiOutlineHeart } from "react-icons/hi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { useCart } from "../context/CartContext";
 
-const Header = () => {
-  // const [showWishlist, setShowWishlist] = useState(false);
-  // const [showCart, setShowCart] = useState(false);
+const Header = ({ onShowWishlist, onShowCart, countWishlistItems }) => {
+  const { cartQuantity } = useCart();
 
   return (
     <>
       <StyledHeader>
         <h1>Ann@Express</h1>
         <div className="buttons">
-          <button>
+          <button onClick={onShowWishlist}>
             <span className="icon red">
               <HiOutlineHeart />
             </span>
             <span className="text">Wishlist</span>
-            <span className="num">(3)</span>
+            <span className="num">{`(${countWishlistItems})`}</span>
           </button>
-          <button>
+          <button onClick={onShowCart}>
             <span className="icon">
               <HiOutlineShoppingCart />
             </span>
             <span className="text">Cart</span>
-            <span className="num">(1)</span>
+            <span className="num">{`(${cartQuantity})`}</span>
           </button>
         </div>
       </StyledHeader>

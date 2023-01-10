@@ -1,7 +1,5 @@
 import React from "react";
 
-// import { icons } from "../../assets/icons";
-// import { ModalProps } from "semantic-ui-react";
 import {
   StyledActions,
   StyledContent,
@@ -9,16 +7,10 @@ import {
   StyledModal,
 } from "./styles/Modal.styled";
 
-const Modal = ({ title, children, icon, actions, noPadActions, ...props }) => {
+const Modal = ({ title, children, actions, ...props }) => {
   return (
-    <StyledModal
-      role="dialog"
-      // className={noPadActions && "no-pad-actions"}
-      {...props}
-    >
-      {" "}
+    <StyledModal role="dialog" {...props}>
       <StyledHeader>
-        {icon}
         <h2>{title}</h2>
       </StyledHeader>
       <StyledContent>{children}</StyledContent>

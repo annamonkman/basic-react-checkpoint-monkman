@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
 export const StyledPlp = styled.main`
-  /* border: 1px solid red; */
   width: 90%;
   margin: 0 auto;
   margin-top: 90px;
   margin-bottom: 90px;
   .grid {
-    /* border: 1px solid green; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

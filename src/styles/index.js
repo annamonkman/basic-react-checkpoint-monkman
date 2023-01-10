@@ -13,6 +13,9 @@ body {
   margin: 0;
 	padding: 0;
 }
+h2, h3, h4, button {
+	font-family: 'Open Sans', sans-serif;
+}
 input, button {
 	border: none;
 	border-radius: none;

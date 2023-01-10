@@ -1,25 +1,43 @@
 import React from "react";
 import Modal from "../components/Modal";
+import ProductCard from "../components/ProductCard";
 
-const Wishlist = (setShowWishlist, showWislist) => {
-  const onCancel = () => {
-    setShowWishlist((prev) => !prev);
-  };
+const Wishlist = ({
+  open,
+  onClose,
+  wishlistItems,
+  onAddToWishlist,
+  onRemoveFromWishlist,
+}) => {
   return (
     <Modal
-      open={showWislist}
-      title={"wishlist"}
+      open={open}
+      title={"Wishlist"}
       actions={
-        <>
-          <button onClick={onCancel}>action</button>
-          <button>action</button>
-        </>
+        <button className="close-button" onClick={onClose}>
+          Close
+        </button>
       }
       size="small"
       dimmer
-      onClose={() => setShowWishlist(false)}
+      onClose={onClose}
     >
-      <div>sdjgsjgkwjeg contenkwgnekjgnke</div>
+      {wishlistItems.length === 0 ? (
+        <p>Wishlist is empty</p>
+      ) : (
+        <div className="wishlist-items">
+          {wishlistItems.map((product) => (
+            <ProductCard
+              key={product.id}
+              {...product}
+              product={product}
+              onAddToWishlist={onAddToWishlist}
+              onRemoveFromWishlist={onRemoveFromWishlist}
+              wishlistItems={wishlistItems}
+            />
+          ))}
+        </div>
+      )}
     </Modal>
   );
 };
