@@ -3,7 +3,6 @@ import ProductCard from "../components/ProductCard";
 
 const ProductListingPage = ({
   addToWishlist,
-  isInWishlist,
   data,
   error,
   loading,
@@ -23,7 +22,6 @@ const ProductListingPage = ({
               {...product}
               product={product}
               addToWishlist={addToWishlist}
-              isInWishlist={isInWishlist}
               activeHeart={activeHeart}
             />
           ))

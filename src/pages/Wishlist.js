@@ -7,7 +7,6 @@ const Wishlist = ({
   onClose,
   wishlistItems,
   addToWishlist,
-  isInWishlist,
   activeHeart,
 }) => {
   return (
@@ -33,8 +32,6 @@ const Wishlist = ({
               {...product}
               product={product}
               addToWishlist={addToWishlist}
-              wishlistItems={wishlistItems}
-              isInWishlist={isInWishlist}
               activeHeart={activeHeart}
             />
           ))}

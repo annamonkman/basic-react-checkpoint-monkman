@@ -15,7 +15,6 @@ function App() {
   const [wishlistIsShown, setWishlistIsShown] = useState(false);
   const [cartIsShown, setCartIsShown] = useState(false);
   const [wishlistItems, setWishlistItems] = useState([]);
-  const [isInWishlist, setIsInWishlist] = useState(false);
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -53,11 +52,9 @@ function App() {
   const addToWishlist = (product, event) => {
     if (!wishlistItems.includes(product)) {
       setWishlistItems([...wishlistItems, product]);
-      setIsInWishlist(true);
       setActiveHeart(product.id);
     } else {
       setWishlistItems([...wishlistItems.filter((item) => item !== product)]);
-      setIsInWishlist(false);
       setActiveHeart("");
     }
   };
@@ -71,7 +68,6 @@ function App() {
           open={wishlistIsShown}
           wishlistItems={wishlistItems}
           addToWishlist={addToWishlist}
-          isInWishlist={isInWishlist}
           activeHeart={activeHeart}
         />
         <Cart onClose={hideCartHandler} open={cartIsShown} data={data} />
@@ -86,7 +82,6 @@ function App() {
             element={
               <ProductListingPage
                 addToWishlist={addToWishlist}
-                isInWishlist={isInWishlist}
                 data={data}
                 error={error}
                 loading={loading}
