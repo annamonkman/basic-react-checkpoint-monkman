@@ -19,6 +19,15 @@ function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [cssClass, setCssClass] = useState("svg heart");
+
+  // useEffect(() => {
+  //   if (isInWishlist) {
+  //     setCssClass("svg heart in-wishlist");
+  //   } else {
+  //     setCssClass("svg heart");
+  //   }
+  // }, [isInWishlist]);
 
   useEffect(() => {
     const getData = async () => {
@@ -42,7 +51,6 @@ function App() {
   const hideWishlistHandler = () => {
     setWishlistIsShown(false);
   };
-
   const showCartHandler = () => {
     setCartIsShown(true);
   };
@@ -50,19 +58,16 @@ function App() {
     setCartIsShown(false);
   };
 
-  const onAddToWishlist = (product) => {
-    const exist = wishlistItems.find((x) => x.id === product.id);
-    if (exist) {
-      return;
-    } else {
-      setWishlistItems([...wishlistItems, { ...product }]);
+  const addToWishlist = (product) => {
+    if (!wishlistItems.includes(product)) {
+      setWishlistItems([...wishlistItems, product]);
       setIsInWishlist(true);
+      setCssClass("svg heart in-wishlist");
+    } else {
+      setWishlistItems([...wishlistItems.filter((item) => item !== product)]);
+      setIsInWishlist(false);
+      setCssClass("svg heart");
     }
-  };
-
-  const onRemoveFromWishlist = (product) => {
-    setWishlistItems(wishlistItems.filter((x) => x.id !== product.id));
-    setIsInWishlist(false);
   };
 
   return (
@@ -73,9 +78,9 @@ function App() {
           onClose={hideWishlistHandler}
           open={wishlistIsShown}
           wishlistItems={wishlistItems}
-          onAddToWishlist={onAddToWishlist}
-          onRemoveFromWishlist={onRemoveFromWishlist}
+          addToWishlist={addToWishlist}
           isInWishlist={isInWishlist}
+          cssClass={cssClass}
         />
         <Cart onClose={hideCartHandler} open={cartIsShown} data={data} />
         <Header
@@ -88,12 +93,12 @@ function App() {
             path="/products"
             element={
               <ProductListingPage
-                onAddToWishlist={onAddToWishlist}
-                onRemoveFromWishlist={onRemoveFromWishlist}
+                addToWishlist={addToWishlist}
                 isInWishlist={isInWishlist}
                 data={data}
                 error={error}
                 loading={loading}
+                cssClass={cssClass}
               />
             }
           />

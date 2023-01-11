@@ -2,12 +2,12 @@ import { StyledPlp } from "./styles/Plp.styled";
 import ProductCard from "../components/ProductCard";
 
 const ProductListingPage = ({
-  onAddToWishlist,
-  onRemoveFromWishlist,
+  addToWishlist,
   isInWishlist,
   data,
   error,
   loading,
+  cssClass,
 }) => {
   return (
     <StyledPlp>
@@ -22,9 +22,9 @@ const ProductListingPage = ({
               key={product.id}
               {...product}
               product={product}
-              onAddToWishlist={onAddToWishlist}
-              onRemoveFromWishlist={onRemoveFromWishlist}
+              addToWishlist={addToWishlist}
               isInWishlist={isInWishlist}
+              cssClass={cssClass}
             />
           ))
         )}

@@ -30,7 +30,7 @@ export const StyledContent = styled(Modal.Content)`
       font-weight: 400;
       font-size: 14px;
       margin: 0;
-      margin-right: 50px;
+      margin-right: 85px;
     }
     button {
       background-color: transparent;

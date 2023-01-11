@@ -6,8 +6,9 @@ const Wishlist = ({
   open,
   onClose,
   wishlistItems,
-  onAddToWishlist,
-  onRemoveFromWishlist,
+  addToWishlist,
+  isInWishlist,
+  cssClass,
 }) => {
   return (
     <Modal
@@ -31,9 +32,10 @@ const Wishlist = ({
               key={product.id}
               {...product}
               product={product}
-              onAddToWishlist={onAddToWishlist}
-              onRemoveFromWishlist={onRemoveFromWishlist}
+              addToWishlist={addToWishlist}
               wishlistItems={wishlistItems}
+              isInWishlist={isInWishlist}
+              cssClass={cssClass}
             />
           ))}
         </div>

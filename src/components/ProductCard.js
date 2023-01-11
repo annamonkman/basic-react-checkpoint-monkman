@@ -6,34 +6,16 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useCart } from "../context/CartContext";
 
 const ProductCard = ({
-  onAddToWishlist,
-  onRemoveFromWishlist,
+  addToWishlist,
   product,
   isInWishlist,
+  cssClass,
   title,
   image,
   price,
   id,
 }) => {
   const { increaseCartQuantity } = useCart();
-
-  // const [cssClass, setCssClass] = useState("heart");
-
-  // useEffect(() => {
-  //   if (toggleHeart) {
-  //     setCssClass("svg heart in-wishlist");
-  //   } else {
-  //     setCssClass("svg heart");
-  //   }
-  // }, [toggleHeart]);
-
-  // const handleClick = (event) => {
-  //   if (isInWishlist === false) {
-  //     onAddToWishlist(product);
-  //   } else if (isInWishlist === true) {
-  //     onRemoveFromWishlist(product);
-  //   }
-  // };
 
   return (
     <StyledCard className="card">
@@ -44,12 +26,10 @@ const ProductCard = ({
         <p>{`£${price}`}</p>
 
         <div className="buttons">
-          <button onClick={() => onAddToWishlist(product)}>
-            <HiOutlineHeart className="svg heart in-wishlist" />
+          <button onClick={() => addToWishlist(product)}>
+            <HiOutlineHeart className={cssClass} />
           </button>
-          <button onClick={() => onRemoveFromWishlist(product)}>
-            <HiOutlineHeart className="svg heart " />
-          </button>
+
           <button onClick={() => increaseCartQuantity(id)}>
             <HiOutlineShoppingCart className="svg cart" />
           </button>
