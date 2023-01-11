@@ -1,5 +1,3 @@
-// import { useState, useEffect } from "react";
-
 import { StyledCard } from "./styles/Card.styled";
 import { HiOutlineHeart } from "react-icons/hi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
@@ -8,12 +6,11 @@ import { useCart } from "../context/CartContext";
 const ProductCard = ({
   addToWishlist,
   product,
-  isInWishlist,
-  cssClass,
   title,
   image,
   price,
   id,
+  activeHeart,
 }) => {
   const { increaseCartQuantity } = useCart();
 
@@ -27,7 +24,13 @@ const ProductCard = ({
 
         <div className="buttons">
           <button onClick={() => addToWishlist(product)}>
-            <HiOutlineHeart className={cssClass} />
+            <HiOutlineHeart
+              className={
+                activeHeart === product.id
+                  ? "svg heart in-wishlist"
+                  : "svg heart"
+              }
+            />
           </button>
 
           <button onClick={() => increaseCartQuantity(id)}>

@@ -19,15 +19,7 @@ function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [cssClass, setCssClass] = useState("svg heart");
-
-  // useEffect(() => {
-  //   if (isInWishlist) {
-  //     setCssClass("svg heart in-wishlist");
-  //   } else {
-  //     setCssClass("svg heart");
-  //   }
-  // }, [isInWishlist]);
+  const [activeHeart, setActiveHeart] = useState("svg heart");
 
   useEffect(() => {
     const getData = async () => {
@@ -58,15 +50,15 @@ function App() {
     setCartIsShown(false);
   };
 
-  const addToWishlist = (product) => {
+  const addToWishlist = (product, event) => {
     if (!wishlistItems.includes(product)) {
       setWishlistItems([...wishlistItems, product]);
       setIsInWishlist(true);
-      setCssClass("svg heart in-wishlist");
+      setActiveHeart(product.id);
     } else {
       setWishlistItems([...wishlistItems.filter((item) => item !== product)]);
       setIsInWishlist(false);
-      setCssClass("svg heart");
+      setActiveHeart("");
     }
   };
 
@@ -80,7 +72,7 @@ function App() {
           wishlistItems={wishlistItems}
           addToWishlist={addToWishlist}
           isInWishlist={isInWishlist}
-          cssClass={cssClass}
+          activeHeart={activeHeart}
         />
         <Cart onClose={hideCartHandler} open={cartIsShown} data={data} />
         <Header
@@ -98,7 +90,7 @@ function App() {
                 data={data}
                 error={error}
                 loading={loading}
-                cssClass={cssClass}
+                activeHeart={activeHeart}
               />
             }
           />

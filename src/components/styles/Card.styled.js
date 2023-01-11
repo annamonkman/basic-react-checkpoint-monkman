@@ -52,9 +52,6 @@ export const StyledCard = styled.div`
       .heart {
         color: #eb1609;
       }
-      /* .heart:hover {
-        fill: #eb1609;
-      } */
       .in-wishlist {
         fill: #eb1609;
       }

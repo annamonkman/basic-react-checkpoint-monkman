@@ -8,7 +8,7 @@ const Wishlist = ({
   wishlistItems,
   addToWishlist,
   isInWishlist,
-  cssClass,
+  activeHeart,
 }) => {
   return (
     <Modal
@@ -35,7 +35,7 @@ const Wishlist = ({
               addToWishlist={addToWishlist}
               wishlistItems={wishlistItems}
               isInWishlist={isInWishlist}
-              cssClass={cssClass}
+              activeHeart={activeHeart}
             />
           ))}
         </div>
