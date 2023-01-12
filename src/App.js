@@ -18,7 +18,7 @@ function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [activeHeart, setActiveHeart] = useState("svg heart");
+  const [isActive, setIsActive] = useState({});
 
   useEffect(() => {
     const getData = async () => {
@@ -49,13 +49,19 @@ function App() {
     setCartIsShown(false);
   };
 
-  const addToWishlist = (product, event) => {
+  const addToWishlist = (product) => {
     if (!wishlistItems.includes(product)) {
       setWishlistItems([...wishlistItems, product]);
-      setActiveHeart(product.id);
+      setIsActive((state) => ({
+        ...state,
+        [product.id]: !state[product.id],
+      }));
     } else {
       setWishlistItems([...wishlistItems.filter((item) => item !== product)]);
-      setActiveHeart("");
+      setIsActive((state) => ({
+        ...state,
+        [product.id]: !state[product.id],
+      }));
     }
   };
 
@@ -68,7 +74,7 @@ function App() {
           open={wishlistIsShown}
           wishlistItems={wishlistItems}
           addToWishlist={addToWishlist}
-          activeHeart={activeHeart}
+          isActive={isActive}
         />
         <Cart onClose={hideCartHandler} open={cartIsShown} data={data} />
         <Header
@@ -85,7 +91,7 @@ function App() {
                 data={data}
                 error={error}
                 loading={loading}
-                activeHeart={activeHeart}
+                isActive={isActive}
               />
             }
           />

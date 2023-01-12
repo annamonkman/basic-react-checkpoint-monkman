@@ -6,7 +6,8 @@ const ProductListingPage = ({
   data,
   error,
   loading,
-  activeHeart,
+  activeTab = "",
+  isActive,
 }) => {
   return (
     <StyledPlp>
@@ -22,7 +23,9 @@ const ProductListingPage = ({
               {...product}
               product={product}
               addToWishlist={addToWishlist}
-              activeHeart={activeHeart}
+              activeTab={activeTab}
+              isActive={isActive}
+              name={product.id}
             />
           ))
         )}
