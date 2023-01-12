@@ -22,7 +22,10 @@ const ProductCard = ({
 
       <div className="info">
         <h4>{title}</h4>
-        <p>{`£${price}`}</p>
+        <p>
+          <span>£</span>
+          {` ${price}`}
+        </p>
 
         <div className="buttons">
           <button
@@ -31,7 +34,7 @@ const ProductCard = ({
           >
             <HiOutlineHeart
               style={{
-                fill: isActive[name] ? "#eb1609" : "",
+                fill: isActive[name] ? "#f5142e" : "",
               }}
             />
           </button>

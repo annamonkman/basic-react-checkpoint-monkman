@@ -37,6 +37,9 @@ export const StyledCard = styled.div`
       font-size: 18px;
       font-weight: normal;
       margin: 0;
+      span {
+        font-size: 12px;
+      }
     }
     .buttons {
       margin: 7px 0;
@@ -50,7 +53,7 @@ export const StyledCard = styled.div`
         font-size: 22px;
       }
       .heart {
-        color: #eb1609;
+        color: #f5142e;
       }
       .cart {
         color: dimgray;

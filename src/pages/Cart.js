@@ -30,7 +30,7 @@ const Cart = ({ open, onClose, data }) => {
             <h3>quantity</h3>
             <button onClick={() => setCartItems([])}>Clear All Items</button>
           </div>
-          <div className="item-list">
+          <div className="cart-items">
             {cartItems.map((item) => (
               <CartItem key={item.id} data={data} {...item} />
             ))}

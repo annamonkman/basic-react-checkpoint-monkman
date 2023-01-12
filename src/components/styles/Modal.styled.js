@@ -19,6 +19,9 @@ export const StyledContent = styled(Modal.Content)`
       margin: 10px 20px;
     }
   }
+  .cart-items {
+    padding: 0 30px;
+  }
   .headings {
     text-align: right;
     display: flex;
@@ -30,13 +33,13 @@ export const StyledContent = styled(Modal.Content)`
       font-weight: 400;
       font-size: 14px;
       margin: 0;
-      margin-right: 85px;
+      margin-right: 65px;
     }
     button {
       background-color: transparent;
       padding: 0;
       margin: 0;
-      margin-right: 10px;
+      margin-right: 40px;
       font-size: 14px;
     }
     button:hover {

@@ -13,7 +13,7 @@ export const StyledHeader = styled.div`
   align-items: center;
   h1 {
     font-family: "Mulish", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     color: #e43225;
     letter-spacing: -1px;
     font-size: 24px;
