@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../components/Modal";
+import Modal from "./Modal";
 import { useCart } from "../context/CartContext";
 import CartItem from "./CartItem";
 
@@ -9,7 +9,7 @@ const Cart = ({ open, onClose, data }) => {
   return (
     <Modal
       open={open}
-      title={"Cart"}
+      title="Cart"
       actions={
         <>
           <button className="close-button" onClick={onClose}>

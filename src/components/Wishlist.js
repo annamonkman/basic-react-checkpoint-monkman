@@ -1,19 +1,19 @@
 import React from "react";
-import Modal from "../components/Modal";
-import ProductCard from "../components/ProductCard";
+import Modal from "./Modal";
+import ProductCard from "./ProductCard";
 
 const Wishlist = ({
   open,
   onClose,
   wishlistItems,
   addToWishlist,
-  isActive,
+  active,
   activeTab = "",
 }) => {
   return (
     <Modal
       open={open}
-      title={"Wishlist"}
+      title="Wishlist"
       actions={
         <button className="close-button" onClick={onClose}>
           Close
@@ -34,7 +34,7 @@ const Wishlist = ({
               product={product}
               addToWishlist={addToWishlist}
               activeTab={activeTab}
-              isActive={isActive}
+              active={active}
               name={product.id}
             />
           ))}

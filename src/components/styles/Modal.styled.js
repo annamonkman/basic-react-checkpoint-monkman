@@ -14,7 +14,7 @@ export const StyledContent = styled(Modal.Content)`
   overflow: auto;
   .wishlist-items {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     div {
       margin: 10px 20px;
     }

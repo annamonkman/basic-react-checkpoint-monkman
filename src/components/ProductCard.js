@@ -11,7 +11,7 @@ const ProductCard = ({
   price,
   id,
   activeTab,
-  isActive,
+  active,
   name,
 }) => {
   const { increaseCartQuantity } = useCart();
@@ -21,7 +21,7 @@ const ProductCard = ({
       <img src={`${image}`} alt={title} />
 
       <div className="info">
-        <h4>{title}</h4>
+        <h4 title={title}>{title}</h4>
         <p>
           <span>£</span>
           {` ${price}`}
@@ -30,12 +30,12 @@ const ProductCard = ({
         <div className="buttons">
           <button
             onClick={() => addToWishlist(product, name)}
-            className={`svg heart ${isActive[name] && activeTab}`}
+            className={`svg heart ${active[name] && activeTab}`}
           >
             <HiOutlineHeart
               style={{
-                fill: isActive[name] ? "#f5142e" : "",
-              }}
+                fill: active[name] ? "#f5142e" : "",
+              }} // ! AVOID USING INLINE STYLING
             />
           </button>
 
