@@ -1,18 +1,20 @@
 import React from "react";
-import Modal from "./Modal";
-import { useCart } from "../context/CartContext";
+import Modal from "../ui/Modal";
+import { useCart } from "../../context/CartContext";
 import CartItem from "./CartItem";
+import useAxios from "../../hooks/useAxios";
 
-const Cart = ({ open, onClose, data }) => {
-  const { cartItems, setCartItems } = useCart();
+const Cart = () => {
+  const { cartItems, setCartItems, isCartShown, hideCartHandler } = useCart();
+  const { data } = useAxios();
 
   return (
     <Modal
-      open={open}
+      open={isCartShown}
       title="Cart"
       actions={
         <>
-          <button className="close-button" onClick={onClose}>
+          <button className="close-button" onClick={hideCartHandler}>
             Close
           </button>
           <button className="checkout-button">Checkout</button>
@@ -20,7 +22,7 @@ const Cart = ({ open, onClose, data }) => {
       }
       size="small"
       dimmer
-      onClose={onClose}
+      onClose={hideCartHandler}
     >
       {cartItems.length === 0 ? (
         <p>No Items</p>
@@ -32,7 +34,7 @@ const Cart = ({ open, onClose, data }) => {
           </div>
           <div className="cart-items">
             {cartItems.map((item) => (
-              <CartItem key={item.id} data={data} {...item} />
+              <CartItem key={item.id} {...item} data={data} />
             ))}
           </div>
         </>

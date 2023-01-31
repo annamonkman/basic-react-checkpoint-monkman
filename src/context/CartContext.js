@@ -8,6 +8,14 @@ export function useCart() {
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [isCartShown, setIsCartShown] = useState(false);
+
+  const showCartHandler = () => {
+    setIsCartShown(true);
+  };
+  const hideCartHandler = () => {
+    setIsCartShown(false);
+  };
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
@@ -66,6 +74,9 @@ export function CartProvider({ children }) {
         cartItems,
         cartQuantity,
         setCartItems,
+        showCartHandler,
+        hideCartHandler,
+        isCartShown,
       }}
     >
       {children}

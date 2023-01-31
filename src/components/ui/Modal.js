@@ -5,7 +5,7 @@ import {
   StyledContent,
   StyledHeader,
   StyledModal,
-} from "./styles/Modal.styled";
+} from "./Modal.styled";
 
 const Modal = ({ title, children, actions, ...props }) => {
   return (

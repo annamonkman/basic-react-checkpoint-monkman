@@ -1,6 +1,6 @@
 import React from "react";
-import { useCart } from "../context/CartContext";
-import { StyledCartItem } from "./styles/CartItem.styled";
+import { useCart } from "../../context/CartContext";
+import { StyledCartItem } from "./CartItem.styled";
 
 const CartItem = ({ id, data }) => {
   const { removeFromCart, getItemQuantity } = useCart();

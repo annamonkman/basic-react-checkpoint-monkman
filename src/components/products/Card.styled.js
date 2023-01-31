@@ -55,6 +55,12 @@ export const StyledCard = styled.div`
       .heart {
         color: #f5142e;
       }
+      .heart:hover {
+        fill: #f5142e;
+      }
+      .in-wishlist {
+        fill: #f5142e;
+      }
       .cart {
         color: dimgray;
       }

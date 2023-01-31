@@ -1,14 +1,10 @@
-import { StyledPlp } from "./styles/Plp.styled";
+import { StyledPlp } from "./Plp.styled";
 import ProductCard from "./ProductCard";
+import useAxios from "../../hooks/useAxios";
 
-const ProductListingPage = ({
-  addToWishlist,
-  data,
-  isError,
-  isLoading,
-  activeTab = "",
-  active,
-}) => {
+const ProductListingPage = () => {
+  const { data, isLoading, isError } = useAxios();
+
   if (isLoading) {
     return (
       <StyledPlp>
@@ -30,12 +26,12 @@ const ProductListingPage = ({
         {data.map((product) => (
           <ProductCard
             key={product.id}
-            {...product}
-            product={product}
-            addToWishlist={addToWishlist}
-            activeTab={activeTab}
-            active={active}
-            name={product.id}
+            item={{
+              id: product.id,
+              title: product.title,
+              price: product.price,
+              image: product.image,
+            }}
           />
         ))}
       </div>
